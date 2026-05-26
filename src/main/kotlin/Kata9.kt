@@ -1,5 +1,5 @@
 fun Shop.getSetOfCustomers(): Set<Customer> =
-    TODO()
+    customers.toSet()
 
 data class Shop(val name: String, val customers: List<Customer>)
 
@@ -18,5 +18,11 @@ data class City(val name: String) {
 }
 
 fun main() {
-
+    val city = City(name = "Munich")
+    val product = Product(name = "Laptop", price = 120.34)
+    val order1 = Order(products = listOf(product), isDelivered = true)
+    val customer = Customer(name = "Allen", city = city, orders = listOf(order1))
+    val shop = Shop(name = "amazon", customers = listOf(customer, customer))
+    val setOfCustomers = shop.getSetOfCustomers()
+    println(setOfCustomers)
 }
